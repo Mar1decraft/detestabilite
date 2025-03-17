@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Indice de Détestabilité</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Écran de connexion -->
+<div id="login-screen">
+  <h2>Connexion</h2>
+  <input type="password" id="password" placeholder="Mot de passe">
+  <button onclick="verifierMotDePasse()">Se connecter</button>
+  <p id="error-message" style="color: red; display: none;">Mot de passe incorrect.</p>
+</div>
+
+<!-- Contenu principal -->
+<div id="main-content" style="display: none;">
+  <h1>Indice de Détestabilité 😈</h1>
+
+  <!-- Barre d'indice -->
+  <div class="indice-container">
+    <div class="indice-bar"></div>
+    <div class="graduations">
+      <span>0</span><span>20</span><span>40</span><span>60</span><span>80</span><span>100</span>
+    </div>
+  </div>
+
+  <button onclick="ouvrirQuiz()">+ Ajouter une personne</button>
+
+  <!-- Affichage du quiz -->
+  <div id="quiz-container" style="display: none;">
+    <h2 id="quiz-question"></h2>
+    <div id="quiz-options"></div>
+    <button onclick="suivant()">Suivant</button>
+  </div>
+
+  <!-- Validation de la note -->
+  <div id="validation-container" style="display: none;">
+    <h2>Note calculée : <span id="calculated-score"></span></h2>
+    <label>Modifier la note (si besoin) :</label>
+    <input type="number" id="custom-score" min="0" max="100">
+    <button onclick="confirmerNote()">Confirmer</button>
+  </div>
+
+  <!-- Tableau des personnes ajoutées -->
+  <table id="tableau">
+    <thead>
+    <tr>
+      <th>Pseudo/Nom</th>
+      <th>Score du Quiz Marin</th>
+      <th>Note de Marin</th>
+      <th>Score du Quiz Lola</th>
+      <th>Note de Lola</th>
+      <th>Score final (Moyenne)</th>
+    </tr>
+    </thead>
+    <tbody id="table-body"></tbody>
+  </table>
+
+
+  <button onclick="viderTableau()">❌ Supprimer toutes les entrées</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
